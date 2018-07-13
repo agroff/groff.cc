@@ -1,0 +1,51 @@
+{% extends "layout/html.njk" %}
+
+{% block title %}
+    Andrew Groff - Full Stack Developer
+{% endblock %}
+
+
+{% block metas %}
+    <meta name="author" content="Andrew Groff">
+    <meta name="description"
+          content="I'm Andrew. A full stack developer based in sunny San Diego. Check out my portfolio.">
+    <meta name="keywords" content="san diego,fullstack developer,LAMP,Node">
+{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper">
+
+        <div class="navigation">
+            <h1><a href="/" class="inherit">Andrew Groff</a></h1>
+            <h4>Sr. Full Stack Developer</h4>
+
+
+            <ul class="nav">
+                <li class="nav-header">
+                    <h3>Resume</h3>
+                </li>
+
+                <li>
+                    <a href="/resume.pdf" target="resume">View as PDF</a>
+                </li>
+
+                <li class="nav-header">
+                    <h3>Projects</h3>
+                </li>
+
+                <p>
+                    Coming Soon!
+                </p>
+
+            </ul>
+        </div>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+{% endblock %}

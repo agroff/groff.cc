@@ -1,0 +1,97 @@
+/* line 1, sass/_elements.scss */
+body {
+  background-color: #f7f7f7;
+  padding: 0 50px 0 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif; }
+
+/* line 8, sass/_elements.scss */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+/* line 15, sass/_elements.scss */
+p {
+  font-size: 0.9em; }
+
+/* line 1, sass/_.headers.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Exo 2', sans-serif;
+  margin: 5px; }
+
+/* line 6, sass/_.headers.scss */
+h1 {
+  font-size: 1.7em; }
+
+/* line 10, sass/_.headers.scss */
+h2 {
+  font-size: 1.5em; }
+
+/* line 14, sass/_.headers.scss */
+h3 {
+  font-size: 1.1em; }
+
+/* line 18, sass/_.headers.scss */
+h4 {
+  font-size: 1.1em; }
+
+/* line 22, sass/_.headers.scss */
+h5 {
+  font-size: 1em; }
+
+/* line 26, sass/_.headers.scss */
+h1, h2 {
+  color: black; }
+
+/* line 30, sass/_.headers.scss */
+h3 {
+  color: #afafaf;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #dcdcdc; }
+
+/* line 37, sass/_.headers.scss */
+h4, h5 {
+  color: #1AB0B4; }
+
+/* line 41, sass/_.headers.scss */
+h1, h3 {
+  text-transform: uppercase; }
+
+/* line 1, sass/_.buttons.scss */
+a {
+  color: #1AB0B4;
+  text-decoration: none; }
+
+/* line 5, sass/_.buttons.scss */
+a.inherit {
+  color: inherit; }
+
+/* line 7, sass/app.scss */
+div.wrapper {
+  display: flex;
+  min-height: 100vh; }
+  /* line 11, sass/app.scss */
+  div.wrapper .navigation {
+    padding: 20px;
+    box-sizing: border-box;
+    flex-basis: 320px; }
+    /* line 17, sass/app.scss */
+    div.wrapper .navigation .nav .nav-header {
+      margin-top: 20px;
+      margin-bottom: 10px; }
+    /* line 21, sass/app.scss */
+    div.wrapper .navigation .nav a, div.wrapper .navigation .nav p {
+      margin: 5px; }
+    /* line 24, sass/app.scss */
+    div.wrapper .navigation .nav p {
+      color: #444;
+      font-size: 0.9em; }
+  /* line 31, sass/app.scss */
+  div.wrapper .content {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-left: 1px solid #d6d6d6;
+    flex-grow: 1;
+    box-shadow: #888888 5px 0 10px; }
