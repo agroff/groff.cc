@@ -1,0 +1,43 @@
+
+
+@import "sass/_variables.scss";
+@import "sass/_elements.scss";
+@import "sass/_.headers";
+@import "sass/_.buttons";
+@import "sass/_grid";
+
+$mdi-font-path : '../node_modules/mdi/fonts';
+@import "../node_modules/mdi/scss/materialdesignicons";
+
+div.wrapper {
+    display    : flex;
+    min-height : 100vh;
+
+    .navigation {
+        padding    : 20px;
+        box-sizing : border-box;
+        flex       : 0 0 300px;
+
+        .nav {
+            .nav-header {
+                margin-top    : 20px;
+                margin-bottom : 10px;
+            }
+            a, p {
+                margin : 5px;
+            }
+            p {
+                color     : #444;
+                font-size : 0.9em;
+            }
+
+        }
+    }
+    .content {
+        padding          : 20px;
+        background-color : #FFFFFF;
+        border-left      : 1px solid #d6d6d6;
+        flex-grow        : 1;
+        box-shadow       : #888888 5px 0 10px;
+    }
+}

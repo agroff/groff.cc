@@ -1,0 +1,23 @@
+@import "../../sass/variables";
+
+.info-pane{
+    display:grid;
+    grid-template-columns:auto auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    font-size:0.9em;
+
+    label{
+        color: $accent;
+        font-weight: bold;
+        text-align:right;
+    }
+
+    .tag{
+        border:1px solid $accent;
+        color:$accent;
+        border-radius:3px;
+        margin:4px;
+        padding:4px;
+    }
+}

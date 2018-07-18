@@ -1,0 +1,14 @@
+$grid-sizes: 10,20,30,40,50,60,70,80,90;
+
+
+
+.flex-grid{
+    display:flex;
+
+    @each $item in $grid-sizes{
+
+        .flex-#{$item}{
+            flex: 0 0 unquote("#{$item}%");
+        }
+    }
+}

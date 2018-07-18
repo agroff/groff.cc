@@ -1,0 +1,26 @@
+a{
+    color : $accent;
+    text-decoration: none;
+    transition: 0.2s all;
+
+    &:hover{
+        color: darken($accent,5);
+    }
+}
+a.inherit{
+    color:inherit;
+}
+a.button{
+    background-color: $accent;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 18px 0px;
+    display: inline-block;
+
+    &:hover{
+        background-color: darken($accent,2);
+    }
+}

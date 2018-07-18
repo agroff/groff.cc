@@ -1,0 +1,12 @@
+<ul class="nav">
+    <li *ngFor="let item of menuItems" [ngClass]="{'nav-header' : item.isHeader}">
+        <h3 *ngIf="item.isHeader">
+            {{item.title}}
+        </h3>
+        <a *ngIf="!item.isHeader"
+           href="{{item.linkTo}}"
+           [attr.target]="item.isExternalLink ? '_blank' : ''">
+            {{item.title}}
+        </a>
+    </li>
+</ul>
