@@ -1,4 +1,22 @@
 @import "../../sass/variables";
+
+.main-image{
+    width:300px;
+    height:200px;
+    border:1px solid #eee;
+    background-color: #ededed;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float:left;
+    margin-right:20px;
+
+    &.project-1{
+        background-color: white;
+    }
+}
+
+
 .info-pane{
     display:grid;
     grid-template-columns:auto auto;
@@ -7,6 +25,7 @@
     font-size:0.9em;
     flex: 0 0 250px;
     margin-left:20px;
+    height: 200px;
 
     label{
         color: $accent;

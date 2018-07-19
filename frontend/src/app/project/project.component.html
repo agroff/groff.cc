@@ -2,6 +2,12 @@
 
 <div class="flex-grid">
     <div class="grow">
+
+        <div [ngClass]="['main-image', 'project-'+project.id]"
+             [style.backgroundImage]="'url('+project.background+')'">
+
+        </div>
+
         <h1 class="">
             {{project.name}}
         </h1>

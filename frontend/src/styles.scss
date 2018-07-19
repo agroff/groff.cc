@@ -13,16 +13,28 @@ div.wrapper {
     display    : flex;
     min-height : 100vh;
 
+    @media(max-width: 950px){
+        flex-direction: column;
+    }
+
+
     .navigation {
         padding    : 20px;
         box-sizing : border-box;
         flex       : 0 0 300px;
+        @media(max-width: 950px){
+            flex:auto;
+        }
 
         a{
             text-decoration: none;
         }
 
         .nav {
+            @media(max-width: 950px){
+                display:none;
+            }
+
             .nav-header {
                 margin-top    : 20px;
                 margin-bottom : 10px;
@@ -45,5 +57,10 @@ div.wrapper {
         border-left      : 1px solid #d6d6d6;
         flex-grow        : 1;
         box-shadow       : #888888 5px 0 10px;
+        max-width:1024px;
+
+        @media(max-width: 1200px){
+            max-width:725px;
+        }
     }
 }

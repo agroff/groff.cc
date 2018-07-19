@@ -1,9 +1,127 @@
-<h1>
-    Todo: Fill out this template
-</h1>
+<p>
+    In an effort to provide as much transparency as possible into what it would be like to work with me,
+    I've collected three writing samples that cover fairly common cases where a developer's written communication
+    skills are put to use.
+</p>
+
+<h3>
+    Discussing Software Intricacies
+</h3>
 
 <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat.
+    The following is an excerpt from a conversation I had in 2014 about how Reddcoin's software decides who solves
+    a block:
+</p>
+
+<div class="callout">
+    <p>
+        Thanks for getting back to me! According to my understanding, you are completely correct about the "block" (I
+        call them coin groups, so as not to confuse with an actual block) being the deciding factor. I do however
+        believe that the process is not deterministic in the sense that the group with the highest weighted coin age
+        always wins. That group is simply the most likely to win, but discovering a block is still dependent on finding
+        an input that creates a hash that meets the difficulty requirement.
+    </p>
+
+    <p>
+        My source for this is the original PoS whitepaper. My current understanding is that PoSV is essentially
+        identical to PoS, except that it introduces a concept of "weighted coin age" with diminishing returns for older
+        coins. If PoSV also changed the block discovery logic, then your understanding may very well be the truth.
+    </p>
+
+    <p>
+        Here is the relevant section from the <a href="https://peercoin.net/assets/paper/peercoin-paper.pdf">PoS
+        Whitepaper</a>:
+    </p>
+
+    <blockquote>
+        However an important difference is that the hashing operation is done over a limited search space (more
+        specifically one hash per unspent wallet-output per second) instead of an unlimited search space as in
+        proof-of-work,
+        thus no significant consumption of energy is involved.
+    </blockquote>
+    <blockquote>
+        The hash target that stake kernel must meet is a target per unit coin age (coin-day) consumed in the kernel (in
+        contrast to Bitcoin’s proof-of-work target which is a fixed target value applying to every node). Thus the more
+        coin age consumed in the kernel, the easier meeting the hash target protocol. For example, if Bob has a
+        wallet-output
+        which accumulated 100 coin-years and expects it to generate a kernel in 2 days, then Alice can roughly expect
+        her 200 coin-year wallet-output to generate a kernel in 1 day.
+    </blockquote>
+
+
+    <p>
+        Basically what that tells me is that PoS operates by adjusting the difficulty on a per coin group basis, but
+        there
+        is still probability involved as the core of block generation is still determined by the client creating a hash
+        that
+        meets the hash target criteria.
+    </p>
+</div>
+
+<h3>
+    E-Mail Communication &amp; Infeasible Requirements
+</h3>
+
+<p>
+    The following is a response I sent to the research department after being asked to implement a near impossible security
+    feature:
+</p>
+
+<div class="callout">
+    Hey Team,
+    <br>
+    I am not sure who in research needs this information so feel free to CC/FWD to whoever else needs it.
+    <br><br>
+    In an effort to ensure we're doing the best we can to fulfill the requirement where we "encrypt the data in such a way that a hacker who accesses the system cannot read the data," I reached out to a network of professional developers to get their opinions.
+    <br><br>
+    Most said it was impossible and voted to close down the question, but one well published encryption/security researcher replied saying that in the last year, leading MIT computer scientists have published a paper which, aside from some minor flaws, explains how it might be possible to satisfy this requirement.
+    <br><br>
+    Unfortunately trying to implement a system like that one would be cost and time prohibitive as well as preclude other requirements (such as sending emails automatically), so my recommendation is to not consider it as an option.
+    <br><br>
+    If we want to encrypt the database and store the key on the server it is possible and would enable us to say the database is encrypted, but I would recommend against that too. It would be analogous to locking your front door but leaving the key in the handle - it's technically locked, but if someone gets access to the door unlocking it is trivial. The only attack vector this would actually protect us against is one called SQL injection. Essentially it means the hacker doesn't get access to the server but is able to see our data due to a coding flaw. We already have tools in place to prevent this so I don't see the encryption being very useful in this case either.
+    <br><br>
+    If we do want to go that route, I am guessing its about 10 hours to get the initial encryption set up and then about 15% development overhead on all other tasks - since every step requires us to encrypt or decrypt the data in addition to the task itself. Some tasks - like fraud check - would incur significant additional overhead since encryption handicaps our ability to do queries efficiently.
+    <br><br>
+    I'll leave it up to the research team to determine if these drawbacks are worth the negligible security increase.
+    <br><br>
+    If security is a priority, here are the steps I'd recommend:
+    (database encryption is notably not one of them)
+    <br><br>
+    1. Host the application on its own server - This reduces the surface area significantly and ensures that a security vulnerability outside this system cannot affect this system.
+    <br>
+    2. Lock down the server with industry standard best practices - We do this by default, mostly involves keeping software up to date and disabling password login to the server
+    <br>
+    3. Implement rate limiting - This means preventing multiple failed log in attempts from trying again for 5 minutes or so. Even with an encrypted database, letting them brute force a login would give a determined hacker all our data within a matter of hours.
+    <br>
+    4. Encrypt data in transit - Encrypting the data in transit ensures that no one listening to network traffic is able to scrape passwords or respondent data.
+    <br><br>
+    With these measures I'd be pretty confident that the system is more secure than most, and since there's no incentive for anyone to want this data I'd say that makes us very safe.
+    <br><br>
+    Thanks,
+    <br>
+    Andy
+</div>
+
+<h3>
+    Research &amp; Interactive Article
+</h3>
+
+<p>
+    Finally I am including an interactive article I wrote for the Reddcoin community explaining in simple terms how
+    the software works. It includes some small widgets written in Javascript to help make concepts understandable.
+</p>
+
+<p>
+    This sort of writing is not a common task for most developers, but I wanted to include it because I think it does
+    a great job at showing my ability to do research, figure out how things work, combine multiple sources into a
+    cohesive explanation, and utilize development skills to assist in explanation. The article and the code that
+    drives it are linked above and I am including the links again for convenience:
+</p>
+
+<p>
+    <a href="http://agroff.github.io/posv/">Reddcoin Proof of Stake Velocity Article</a>
+</p>
+
+<p>
+    <a href="https://github.com/agroff/agroff.github.io/tree/master/posv">Source Code of Article</a>
 </p>
