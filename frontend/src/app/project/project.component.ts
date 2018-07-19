@@ -10,12 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProjectComponent implements OnInit {
 
-    project: Project = {
-        id: 1,
-        name: "Written Communication",
-        description: "When deciding to bring someone onto your team, it's important that they're " +
-        "technically competent, but it's also important that they can communicate effectively."
-    };
+    project: Project;
 
     constructor(private projectService: ProjectService,
                 private route: ActivatedRoute) {
@@ -25,14 +20,19 @@ export class ProjectComponent implements OnInit {
         const that = this;
         const id = parseInt(this.route.snapshot.paramMap.get("id"));
 
-        this.projectService.getProjects()
-            .subscribe(function(projects){
-                projects.forEach(function(project){
-                    if(project.id === id){
-                        that.project = project;
-                    }
-                });
-            });
+        // this.projectService.getProjects()
+        //     .subscribe(function (projects) {
+        //         projects.forEach(function (project) {
+        //             if (project.id === id) {
+        //                 that.project = project;
+        //             }
+        //         });
+        //     });
+
+        this.projectService.getProject(id, (project) => {
+            console.log(project);
+            this.project = project
+        });
     }
 
     ngOnInit() {
